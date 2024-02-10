@@ -134,8 +134,15 @@ function handleKeyPress(event) {
 }
 
 function increaseSpeed() {
-    if (gameSpeedDelay > 150) {
+    console.log(gameSpeedDelay);
+    if (gameSpeedDelay > 50) {
         gameSpeedDelay -= 5;
+    } else if (gameSpeedDelay > 100) {
+        gameSpeedDelay -= 3;
+    } else if (gameSpeedDelay > 50) {
+        gameSpeedDelay -= 2;
+    } else if (gameSpeedDelay > 25) {
+        gameSpeedDelay -= 1;
     }
 }
 
