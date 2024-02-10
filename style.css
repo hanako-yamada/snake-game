@@ -40,13 +40,13 @@ body,
 
 #instruction-text {
     position: absolute;
-    top: 60%;
+    top: 65%;
     color: #333;
     width: 300px;
     text-align: center;
     text-transform: capitalize;
     padding: 30px;
-    margin:0;
+    margin: 0;
 }
 
 .scores {
