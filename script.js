@@ -2,12 +2,15 @@
 const board = document.getElementById('game-board');
 
 // Define game variables
-let snake = [{ x: 10, y: 10 }];
+const gridSize = 20;
+let snake = [{ x: 10, y: 10 }]; // Snake initial position
+let food = generateFoodPosition(); // Food initial position
 
 // Draw game map, snake, food
 function draw() {
     board.innerHTML = '';
     drawSnake();
+    drawFood();
 }
 
 // Draw snake
@@ -32,5 +35,17 @@ function setPosition(element, position) {
     element.style.gridRow = position.y;
 }
 
-// Testing draw function
-draw();
+// Draw food
+function drawFood() {
+    const foodElement = createGameElement('div', 'food');
+    setPosition(foodElement, food);
+    board.appendChild(foodElement);
+}
+
+// Randomically generate the food position
+function generateFoodPosition() {
+    const x = Math.floor(Math.random() * gridSize) + 1;
+    const y = Math.floor(Math.random() * gridSize) + 1;
+
+    return { x, y };
+}
