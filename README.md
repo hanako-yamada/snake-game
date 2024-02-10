@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/status-finished-green?style=for-the-badge" alt="Status" />
 </div>
 
-## :memo: In your machine
+## :computer: In your machine
 It's easy get this code to your machine.
 
 You clone this repo:
