@@ -3,9 +3,14 @@ const board = document.getElementById('game-board');
 
 // Define game variables
 const gridSize = 20;
+
 let snake = [{ x: 10, y: 10 }]; // Snake initial position
 let snakeDirection = 'left'; // Snake initial direction
+
 let food = generateFoodPosition(); // Food initial position
+
+let gameSpeedDelay = 500;
+let gameInterval;
 
 // Draw game map, snake, food
 function draw() {
@@ -76,5 +81,20 @@ function moveSnake() {
     }
 
     snake.unshift(head);
-    snake.pop();
+
+    if (head.x === food.x && head.y === food.y) {
+        food = generateFoodPosition();
+        clearInterval(); // Clear past interval
+        gameInterval = setInterval(() => {
+            moveSnake();
+            draw();
+        }, gameSpeedDelay);
+    } else {
+        snake.pop();
+    }
 }
+
+// setInterval(() => {
+//     draw();
+//     moveSnake();
+// }, 500);
